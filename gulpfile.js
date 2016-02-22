@@ -6,48 +6,48 @@ var gulp = require('gulp'),
     port = process.env.port || 3031;
 
 gulp.task('browserify', function() {
-  gulp.src('./app/src/js/components/main.js')
+  gulp.src('./src/js/components/main.js')
       .pipe(browserify({ transform: 'reactify' }))
-      .pipe(gulp.dest('./app/dist/js'));
+      .pipe(gulp.dest('./dist/js'));
 });
 
 // launch browser in a port
 gulp.task('open', function(){
   var options = {
-    url: 'http://localhost:' + port,
+    url: 'http://localhost:' + port
   };
-  gulp.src('./app/index.html')
+  gulp.src('./src/index.html')
   .pipe(open('', options));
 });
 
 // live reload server
 gulp.task('connect', function() {
   connect.server({
-    root: 'app',
+    root: 'src',
     port: port,
     livereload: true
   });
 });
 
 // live reload js
-gulp.task('js', function () {
-  gulp.src('./app/dist/**/*.js')
-    .pipe(connect.reload());
-});
+// gulp.task('js', function () {
+//   gulp.src('./app/dist/**/*.js')
+//     .pipe(connect.reload());
+// });
 
 // live reload html
 gulp.task('html', function () {
-  gulp.src('./app/*.html')
+  gulp.src('./*.html')
     .pipe(connect.reload());
 });
 
 // watch files for live reload
 gulp.task('watch', function() {
-    gulp.watch('app/dist/js/*.js', ['js']);
-    gulp.watch('app/index.html', ['html']);
-    gulp.watch('app/src/js/**/*.js', ['browserify']);
+    //gulp.watch('app/dist/js/*.js', ['js']);
+    gulp.watch('src/index.html', ['html']);
+    gulp.watch('src/js/**/*.js', ['browserify']);
 });
 
 gulp.task('default', ['browserify']);
 
-gulp.task('serve', ['browserify', 'connect', 'open', 'watch']);
+gulp.task('serve', ['connect', 'open', 'watch']);

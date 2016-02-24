@@ -1,10 +1,12 @@
-(function(window){
-      var ytp = new SpektralTube('yt-player', 'playerContainer');
+(function(window) {
+    var ytp = require('./spektral/spektraltube.js');
 
-      ytp.onReady(function(){
-      	ytp.loadVideo('EsQ0U5sqf_I');
-      	console.log('Player Ready');
-      });
+    ytp = new SpektralTube('yt-player', 'playerContainer');
+
+    ytp.onReady(function() {
+        ytp.loadVideo('EsQ0U5sqf_I');
+        console.log('Player Ready');
+    });
 
 
 }(window));

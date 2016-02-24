@@ -90,15 +90,6 @@ function SpektralTube(id, container, paramObj) {
     this.loadVideo = function(url, start, quality) {
         start = start || 0;
         quality = quality || 'large';
-        // var vidID;
-
-        // if(validateURL(url) !== true) {
-        // 	vidID = url;
-        // } else {
-        // 	vidID = getQueryString(url).v;
-        // }
-        console.log("vidID: " + url);
-
         player.loadVideoById(url, start, quality);
     }
 

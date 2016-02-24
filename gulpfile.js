@@ -1,13 +1,24 @@
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
     open = require("gulp-open"),
-    browserify = require('gulp-browserify'),
-    concat = require('gulp-concat'),
+    webpack = require('gulp-webpack'),
+    concat = require('gulp-concat'),    
     port = process.env.port || 3031;
 
-gulp.task('browserify', function() {
-  gulp.src('./src/js/components/main.js')
-      .pipe(browserify({ transform: 'reactify' }))
+//copy static files to dist
+gulp.task('copy', function(){
+  gulp.src('./src/index.html')
+      .pipe(gulp.dest('./dist/'));
+});
+
+//webpack the js
+gulp.task('webpack', function() {
+  gulp.src('./src/js/main.js')
+      .pipe(webpack({
+        output: {
+          filename: 'main.js',
+        },
+      }))
       .pipe(gulp.dest('./dist/js'));
 });
 
@@ -16,7 +27,7 @@ gulp.task('open', function(){
   var options = {
     url: 'http://localhost:' + port
   };
-  gulp.src('./src/index.html')
+  gulp.src('./dist/index.html')
   .pipe(open('', options));
 });
 
@@ -30,10 +41,10 @@ gulp.task('connect', function() {
 });
 
 // live reload js
-// gulp.task('js', function () {
-//   gulp.src('./app/dist/**/*.js')
-//     .pipe(connect.reload());
-// });
+gulp.task('js', function () {
+  gulp.src('./dist/**/*.js')
+    .pipe(connect.reload());
+});
 
 // live reload html
 gulp.task('html', function () {
@@ -43,11 +54,11 @@ gulp.task('html', function () {
 
 // watch files for live reload
 gulp.task('watch', function() {
-    //gulp.watch('app/dist/js/*.js', ['js']);
+    //gulp.watch('dist/js/*.js', ['js']);
     gulp.watch('src/index.html', ['html']);
-    gulp.watch('src/js/**/*.js', ['browserify']);
+    gulp.watch('src/js/**/*.js', ['webpack']);
 });
 
-gulp.task('default', ['browserify']);
+gulp.task('default', ['copy', 'webpack']);
 
 gulp.task('serve', ['connect', 'open', 'watch']);

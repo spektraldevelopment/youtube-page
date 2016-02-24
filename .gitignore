@@ -46,3 +46,6 @@ dwsync.xml
 
 # node
 node_modules
+
+# dist directory
+dist

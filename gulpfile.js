@@ -54,7 +54,6 @@ gulp.task('html', function () {
 
 // watch files for live reload
 gulp.task('watch', function() {
-    //gulp.watch('dist/js/*.js', ['js']);
     gulp.watch('src/index.html', ['html']);
     gulp.watch('src/js/**/*.js', ['webpack']);
 });

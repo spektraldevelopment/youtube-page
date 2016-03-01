@@ -1,0 +1,64 @@
+@mixin header($size: 25px)
+{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: $size;
+}
+
+@mixin paragraph($size: 18px)
+{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: $size;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+@mixin transparentBG($color, $alpha)
+{
+  background-color: rgba(red($color), green($color), blue($color), $alpha);
+}
+
+@mixin shadow($hOffset: inset, $vOffset: 0px, $blur: 0px, $spread: 5px, $color: #000)
+{
+  -moz-box-shadow: $hOffset $vOffset $blur $spread $color;
+  -webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+  box-shadow: $hOffset $vOffset $blur $spread $color;
+}
+
+@mixin textShadow($X: 1px, $Y: 1px, $blur: 3px, $color: #888)
+{
+  text-shadow: $X $Y $blur $color;
+}
+
+@mixin rounded-corners($radius: 5px)
+{
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin v-align-text {
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}

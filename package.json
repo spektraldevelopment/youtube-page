@@ -1,21 +1,21 @@
 {
   "name": "youtube-page",
-  "version": "1.0.0",
-  "description": "A simple page used to display youtube videos.",
+  "version": "0.0.1",
+  "description": "An example of a responsive video page.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spektraldevelopment/youtube-page.git"
+    "url": "https://github.com/spektraldevelopment/youtube-page.git"
   },
   "author": "spektraldevelopment",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spektraldevelopment/youtube-page/issues"
+    "url": "https://github.com/spektraldevelopment/youtube-page.git/issues"
   },
-  "homepage": "https://github.com/spektraldevelopment/youtube-page#readme",
+  "homepage": "",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

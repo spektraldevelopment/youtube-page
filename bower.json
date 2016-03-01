@@ -1,0 +1,25 @@
+{
+  "name": "youtube-page",
+  "description": "An example of a responsive video page."",
+  "main": [
+    "src/js/main.js"
+  ],
+  "devDependencies": {
+    "jquery": "https://code.jquery.com/jquery-2.2.1.min.js"
+  },
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "spektraldevelopment"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}
